@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>  
+<meta charset="UTF-8">   
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/style.css">
+<!-- Load jQuery library -->
+<script  type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+<!-- Load the Paper.js library -->
+<script type="text/javascript" src="node_modules/paper/dist/paper-full.js"></script>
+<!-- Define PaperScript associate it with myCanvas -->
+<script type="text/paperscript" canvas="myCanvas" src="js/grid.js"></script>
+
+</head>
+<body>
+
+  <header class="header-img">
+    <img src="images/header.png">
+  </header>
+
+  <div class="paper-controls">
+    <div class="dropdown">
+
+      <button class="dropbtn">Papers</button>
+      <div class="dropdown-content">
+        <button id="mainpaper-btn">Mood Tracker</button>
+        <!-- <button id="addPaper-btn">+</button>   -->
+      </div>
+
+    </div>
+
+      <div class="plus-div">
+          <input id="addPaper-btn" type="image" src="images/plus.png" />
+      </div>
+
+    </div>
+    
+  </div>
+  
+  <div class="bulletBox">
+    <canvas id="myCanvas" resize></canvas>
+  </div>
+
+</body>
+</html>
