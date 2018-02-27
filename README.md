@@ -36,6 +36,7 @@ npm run start
 - [ ] Preferences for user customization  
 - [ ] Option to delete papers  
 - [ ] Text notes 
+- [ ] Stats
 
 ---
 
