@@ -2,15 +2,29 @@
   "name": "dotonpaper",
   "version": "1.0.0",
   "description": "Track your dots",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": {
+    "name": "K. Moussa"
   },
-  "author": "kamal",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kamalmoussa1/dotonpaper"
+  },
+  "bugs": {
+    "url": "https://github.com/kamalmoussa1/dotonpaper/issues"
+  },
   "license": "ISC",
   "private": true,
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
   "dependencies": {
+    "electron": "^1.8.2",
     "jquery": "^3.3.1",
     "paper": "^0.11.5"
+  },
+  "devDependencies": {
+    "electron-reload": "^1.2.2"
   }
 }

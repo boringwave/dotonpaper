@@ -4,6 +4,39 @@ html, body {
   background: black;
 }
 
+
+.side-nav{
+  padding-top: 100px;
+  position: fixed;
+  /* z-index: 1; */
+  height: 100%;
+  width: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  top: 0;
+  left: 0;
+  transition: 0.5s;
+  /* border-style: ; */
+  border-right: 0.5px yellow;
+}
+
+.side-nav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.side-nav a:hover {
+  color: #f1f1f1;
+}
+
+#content {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
 .header-img {
   position:sticky;
   width:100%; 
@@ -15,31 +48,16 @@ html, body {
   width:100%; 
 }
 
-/* .info-box{
-  width: 100%;
-  position: relative;
-  margin: 50px auto;
-  visibility: hidden;
-}
-
-#day-info-header{
-  text-align: center;
-  color: white;
-  font-size: 40px;
-  font-family: 'Courier New';
-
-} */
-
-canvas {
+#myCanvas {  
   width: 100%; 
-  height: 700px; 
+  height: 800px;
   border: 1px solid yellow;
   background-color: black;
 }
 
 .bulletBox { 
-  margin:  50px auto;
-  width: 90%;
+  margin: 60px 50px 30px 50px ;
+  width: 95%;
 }
 
 .paper-controls button {
@@ -54,12 +72,26 @@ canvas {
 }
 
 #addPaper-btn{
-  width:  60px;
-  height: 60px;
+  width:  55px;
+  height: 55px;
 }
 
-.plus-div{
+.inputBox{
+  position: relative;
   display: inline;
+  margin-left: 40%;
+  visibility: hidden;
+}
+.userInput{
+  border-radius: 15px;
+  border: 2px solid yellow;
+  height: 25px;
+  width: 250px; 
+  font-size: 18px;
+  text-align: center;
+  
+}
+.plus-div{
   float: right;
   margin: 0px 30px auto;
 }
@@ -108,4 +140,49 @@ canvas {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   background-color: #3e8e41;
+}
+
+#util-hidden-div{
+  width: 0;
+  height: 0;
+  visibility: hidden; 
+}
+
+.tool-dix{
+  width: 100%;
+  margin: auto;
+  
+}
+#back-btn{
+  font-size: 28px;
+  cursor:pointer;
+  color: white;
+  visibility: hidden;
+}
+
+#clear-btn{
+  font-size: 30px;
+  cursor:pointer;
+  color: white;
+  visibility: hidden;
+  float: right;
+}
+
+#undo-btn{
+  margin-right: 48%;
+  font-size: 30px;
+  cursor:pointer;
+  color: white;
+  visibility: hidden;
+  margin-left: 30px;
+  float: right;
+}
+
+#redo-btn{
+  font-size: 30px;
+  cursor:pointer;
+  color: white;
+  visibility: hidden;
+  margin-right: 30px;
+  float: right;
 }
