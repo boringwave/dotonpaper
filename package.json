@@ -2,8 +2,9 @@
   "name": "dotonpaper",
   "version": "1.0.0",
   "description": "Track your dots",
+  "license": "MIT",
   "author": {
-    "name": "K. Moussa"
+    "name": ""
   },
   "repository": {
     "type": "git",
@@ -12,19 +13,51 @@
   "bugs": {
     "url": "https://github.com/kamalmoussa1/dotonpaper/issues"
   },
-  "license": "ISC",
   "private": true,
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . --platform=linux --out ./build --electron-version=2.0.14 --overwrite ",
+    "postinstall": "install-app-deps",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "yourappid",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
   },
   "dependencies": {
-    "electron": "^1.8.2",
     "jquery": "^3.3.1",
     "paper": "^0.11.5"
   },
   "devDependencies": {
-    "electron-reload": "^1.2.2"
+    "electron": "^2.0.14",
+    "electron-builder": "^20.38.2",
+    "electron-packager": "^12.2.0",
+    "electron-reload": "^1.4.0"
   }
 }

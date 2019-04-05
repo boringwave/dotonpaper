@@ -8,6 +8,7 @@ const url = require('url')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
+const userDataPath = (electron.app || electron.remote.app).getPath('userData');
 
 
 // reload electron automatically
@@ -25,16 +26,20 @@ app.on('ready',  () => {
   const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
 
   const windowConfig = {
-    width: width,
-    height: height,
-    minHeight: 900,
-    minWidth: 1700,
+    width: 1100,
+    height: 600,
+    resizable: false,   
+    // minWidth: 1150,
+    // minHeight: 800,
     icon:'images/logo.png',
+    transparent: false,
+    backgroundColor: '#2e2c29', 
+    // frame: false
   }
 
   // Create the browser window.
   win = new BrowserWindow(windowConfig);
-
+  // win.setMenu(null);
   win.once('ready-to-show', () => {
     win.show()
   })
@@ -46,6 +51,7 @@ app.on('ready',  () => {
     slashes: true
   }))
 
+  win.setAutoHideMenuBar(true);
   // Open the DevTools.
   // win.webContents.openDevTools()
 

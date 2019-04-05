@@ -15,19 +15,19 @@ class Store{
   {
     this.userDataPath = (electron.app || electron.remote.app).getPath('userData');
     this.exportedJSON;
-
     // this.path = path.join(userDataPath, opts.configName + '.json');
   }
 
-  save(configName,d)
+  save(configName,custJSON) 
   {
     var jPath = path.join(this.userDataPath, configName + '.json');
-    if(!d)
+
+    if(!custJSON)
     {
       fs.writeFileSync(jPath, JSON.stringify(this.exportedJSON));
     }
     else{
-      fs.writeFileSync(jPath, JSON.stringify(d));
+      fs.writeFileSync(jPath, JSON.stringify(custJSON));
     }
   }
   
