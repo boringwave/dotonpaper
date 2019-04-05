@@ -4,8 +4,13 @@ A desktop application for mood tracking and daily notes.
 ## How it works
 - Each dot represents a day. To track your mood, fill today's dot with the selected mood (**single click**) from the mood list. 
 - Each day is linked to its paper, a free-to-draw-on area, **double click** on any dot to open its paper.
-- For general-purpose papers, click on the `add` button. These papers are not linked to any day and can be accessed from the papers menu (toggle menu to see)
+- ~~For general-purpose papers, click on the `add` button. These papers are not linked to any day and can be accessed from the papers menu (toggle menu to see)~~ [removed]
  
+#### To add text note
+1. Left click + `shift` key. 
+2. Start writing. 
+
+** As long as you didn't click the mouse down after finishing wrting, you still can move the text over the paper by holding the `shift` key agin and drag the text. 
 
 ## How to install
 
@@ -34,8 +39,7 @@ npm run start
 - [ ] Responsive design 
 - [ ] Improve drawing tools
 - [ ] Preferences for user customization  
-- [ ] Option to delete papers  
-- [ ] Text notes 
+- [x] Text notes
 - [ ] Stats
 
 ---
