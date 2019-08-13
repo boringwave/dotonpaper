@@ -1,7 +1,7 @@
 {
   "name": "dotonpaper",
-  "version": "1.0.0",
-  "description": "Track your dots",
+  "version": "0.2.0",
+  "description": "Track your dots (AKA: moods)",
   "license": "MIT",
   "author": {
     "name": ""
@@ -51,13 +51,14 @@
     }
   },
   "dependencies": {
-    "jquery": "^3.3.1",
-    "paper": "^0.11.5"
+    "jquery": "^3.4.1",
+    "paper": "^0.12.3",
+    "remote": "^0.2.6"
   },
   "devDependencies": {
-    "electron": "^2.0.14",
-    "electron-builder": "^20.38.2",
-    "electron-packager": "^12.2.0",
-    "electron-reload": "^1.4.0"
+    "electron": "^6.0.1",
+    "electron-builder": "^21.2.0",
+    "electron-packager": "^14.0.4",
+    "electron-reload": "^1.5.0"
   }
 }

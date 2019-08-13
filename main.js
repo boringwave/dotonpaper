@@ -1,45 +1,43 @@
 'use strict';
 /*jshint esversion: 6 */
+
 const electron = require('electron')
+const path     = require('path')
+const url      = require('url')
+
 const {app, BrowserWindow} = electron
-const path = require('path')
-const url = require('url')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
 let win
-const userDataPath = (electron.app || electron.remote.app).getPath('userData');
 
-
-// reload electron automatically
+// (dev-only) reload electron automatically 
 require('electron-reload')(__dirname)
 // require('electron-reload')(__dirname, {
-//   electron: require('electron')
+//   electron: require(`${__dirname}/node_modules/electron`)
 // });
-
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
 app.on('ready',  () => {
 
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
-
-  const windowConfig = {
+  const windowConfig = 
+  {
     width: 1100,
     height: 600,
+    center: true,
     resizable: false,   
-    // minWidth: 1150,
-    // minHeight: 800,
-    icon:'images/logo.png',
-    transparent: false,
-    backgroundColor: '#2e2c29', 
-    // frame: false
+    icon:'images/icon.svg',
+    backgroundColor: '#1f1f1f',
+    frame: false,
+    autoHideMenuBar: true,
+    webPreferences: 
+    {      
+      nodeIntegration: true,
+    },
   }
 
   // Create the browser window.
   win = new BrowserWindow(windowConfig);
-  // win.setMenu(null);
+  
   win.once('ready-to-show', () => {
     win.show()
   })
@@ -51,15 +49,8 @@ app.on('ready',  () => {
     slashes: true
   }))
 
-  win.setAutoHideMenuBar(true);
-  // Open the DevTools.
-  // win.webContents.openDevTools()
-
   // Emitted when the window is closed.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
     win = null
   })
 

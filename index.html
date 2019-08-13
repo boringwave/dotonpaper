@@ -6,29 +6,33 @@
 
 <link rel="stylesheet" href="css/style.css">
 
-<!-- Insert this line above script imports  -->
 <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 
-<!-- load store module -->
-<script  type="text/javascript" src="js/store.js"></script>
-<!-- Load jQuery library -->
-<script  type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
-<!-- Load the Paper.js library -->
-<script  type="text/javascript" src="node_modules/paper/dist/paper-full.js"></script>
-<!-- Define PaperScript associate it with myCanvas -->
-<script  type="text/paperscript" canvas="myCanvas" src="js/grid.js"></script>
+<script  type="text/javascript" src="js/controls.js">                         </script>
+<script  type="text/javascript" canvas="myCanvas" src="js/grid.js">          </script>
 
-<!-- Insert this line below script imports  -->
-<script> if (window.module) module = window.module;</script>
+<script> if (window.module) module = window.module; </script>
 
 </head>
+
 <body>
+  <div id="title-bar">
+      <div id="title">Dot on Paper</div>
+      <div id="title-bar-btns">
+        <button class="btn min-btn">   &#8210;  </button>
+        <button class="btn close-btn"> &#10005; </button>
+      </div>
+      <span id="export-btn">  &#10052; </span>
+ </div>
 
   <div id="util-hidden-div">
       <input id="picker" type="color" name="favcolor" value="#ff0000">  
   </div>
 
   <div id="content">
+    <div class="theme-mode"> 
+      <span id="mode-btn"> &#9680;</span> 
+    </div>
     <div class="bulletBox">
       <canvas id="myCanvas"></canvas>
       <div class="tool-div">
@@ -36,21 +40,19 @@
         <span id="undo-btn">  &#8630; </span>
         <span id="clear-btn"> &#10005;</span>
         <span id="redo-btn">  &#8631; </span>
-      </div>
+      </div> 
     </div>
   </div>
 
   <!--mood customization window-->
   <div id="customMood" class="customMood">
-
     <div class="pop-content">
       <span class="close">&times;</span>
       <p>Write something, you know, a mood?</p>
-      <input id="inputMood" maxLength=14>
-      <span id = 'dot' class="dot"></span>
+      <input id="inputMood" maxlength="14">
+      <span id="dot" class="dot"></span>
       <button id="save-btn">Done</button>
     </div>
-
   </div>
 </body>
 
