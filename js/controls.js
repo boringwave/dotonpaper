@@ -1,59 +1,51 @@
-(() => 
-{
+(() => {
   const remote = require('electron').remote;
-  const $      = require('jquery');
+  const $ = require('jquery');
 
   // initialize behaviour of some HTML elements
-  function init() 
-  { 
-    const bgColors = ['#232323', '#3f3d3f', '#a092b2', 
-                      '#52be80', '#383e5f', '#1f1f1f'];
+  function init() {
+    const bgColors =
+        ['#232323', '#3f3d3f', '#a092b2', '#52be80', '#383e5f', '#1f1f1f'];
 
     let colorId = 0;
 
-    $(".min-btn").on("click", (e) => {
+    $('#min-btn').on('click', (e) => {
       const window = remote.getCurrentWindow();
-      window.minimize(); 
+      window.minimize();
     });
-    
-    $(".close-btn").on("click", (e) => {
+
+    $('#close-btn').on('click', (e) => {
       const window = remote.getCurrentWindow();
       window.close();
-    }); 
+    });
 
-    $("#mode-btn").on("click", (e) => {
-      if(colorId > 5)
-        colorId = 0;
+    $('#theme-toggle').on('click', (e) => {
+      if (colorId > 5) colorId = 0;
 
-      $("html").css({background:bgColors[colorId]});
-      $("body").css({background:bgColors[colorId]});
+      $('html').css({background: bgColors[colorId]});
+      $('body').css({background: bgColors[colorId]});
       colorId++;
     });
 
-    $('#dot').on("click", (event) =>
-    {
+    $('#dot').on('click', (event) => {
       $('#picker').trigger('click');
     });
-      
-    $('#picker').on("change", () => {
+
+    $('#picker').on('change', () => {
       $('#dot').css('backgroundColor', $('#picker').val());
     });
 
     // When the user clicks on (x), close the window
-    $(".close" ).on("click", () => {
-      $('.customMood').css('display','none')
-    });
+    $('#close').on('click', () => {$('.customMood').css('display', 'none')});
 
     window.onclick = (event) => {
-        if (event.target == $("#customMood")[0]) {
-        $('.customMood').css('display','none')
+      if (event.target == $('#customMood')[0]) {
+        $('.customMood').css('display', 'none')
       }
-    }
-
+    };
     //-- capture canvas
-    $("#export-btn").on("click", (event) =>{
-
-      var background_color = $("body").css("backgroundColor");
+    $('#export-btn').on('click', (event) => {
+      var background_color = $('body').css('backgroundColor');
 
       let dataURL = canvas2Image(background_color);
 
@@ -64,53 +56,48 @@
       document.body.appendChild(element);
       element.click();
       document.body.removeChild(element);
-
     });
+  }
 
-   } 
-
-   // author: github:@mikechambers
-   function canvas2Image(background_color)
-   {
-    let myCanvas  = $("#myCanvas")[0];
+  // author: github:@mikechambers
+  function canvas2Image(background_color) {
+    let myCanvas = $('#myCanvas')[0];
     const context = myCanvas.getContext('2d');
 
     let w = myCanvas.width;
     let h = myCanvas.height;
 
-    //get the current ImageData for the canvas.
+    // get the current ImageData for the canvas.
     let data = context.getImageData(0, 0, w, h);
 
-    //store the current globalCompositeOperation
+    // store the current globalCompositeOperation
     var compositeOperation = context.globalCompositeOperation;
-    
-    //set to draw behind current content
-    context.globalCompositeOperation = "destination-over";
 
-    //set background color
+    // set to draw behind current content
+    context.globalCompositeOperation = 'destination-over';
+
+    // set background color
     context.fillStyle = background_color;
-    
-    //draw background / rect on entire canvas
-    context.fillRect(0,0, w, h);
-    
-    //get the image data from the canvas
+
+    // draw background / rect on entire canvas
+    context.fillRect(0, 0, w, h);
+
+    // get the image data from the canvas
     let dataURL = myCanvas.toDataURL('image/png');
 
-    //clear the canvas
-    context.clearRect (0,0,w,h);
+    // clear the canvas
+    context.clearRect(0, 0, w, h);
 
-    //restore it with original / cached ImageData
-    context.putImageData(data, 0,0);	
+    // restore it with original / cached ImageData
+    context.putImageData(data, 0, 0);
 
-    //reset the globalCompositeOperation to what it was
+    // reset the globalCompositeOperation to what it was
     context.globalCompositeOperation = compositeOperation;
 
     return dataURL;
-   }
+  }
 
-  $(document).ready(function($)
-  {
+  $(document).ready(function($) {
     init();
   });
-
 })();

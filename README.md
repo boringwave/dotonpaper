@@ -5,7 +5,7 @@ A diary mood tracking and note-taking desktop application.
 ## How it works
 - Each dot (aka circle) represent a day. 
 - **Single click** on (circle or text) to select mood color and **single click** to fill today's dot with the selected mood.
-- Each day is linked to its paper, a free-to-draw-on area, **double click** on any dot to open its paper.
+- Each day is linked to its paper, a free-to-draw-on area, like a journal. **Double click** on any dot/day to open its paper/journal.
 
 #### To add text note
 1. Left click + `shift` key. 

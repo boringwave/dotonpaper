@@ -1,59 +1,66 @@
 <!DOCTYPE html>
 <html>
-<head>  
-<meta charset="UTF-8">   
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="css/style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+  <link rel="stylesheet" href="css/style.css">
 
-<script  type="text/javascript" src="js/controls.js">                         </script>
-<script  type="text/javascript" canvas="myCanvas" src="js/grid.js">          </script>
+  <script>
+    if (typeof module === 'object') { window.module = module; module = undefined; }
+  </script>
 
-<script> if (window.module) module = window.module; </script>
+  <script type="text/javascript" src="js/controls.js"> </script>
+  <script type="text/javascript" canvas="myCanvas" src="js/grid.js"> </script>
 
 </head>
 
 <body>
-  <div id="title-bar">
-      <div id="title">Dot on Paper</div>
+  <div id="container">
+    <div id="title-bar">
+      <span id="export-btn"> &#10052; </span>
       <div id="title-bar-btns">
-        <button class="btn min-btn">   &#8210;  </button>
-        <button class="btn close-btn"> &#10005; </button>
+        <button class="btn" id="min-btn"> &#8210; </button>
+        <button class="btn" id="close-btn"> &#10005; </button>
       </div>
-      <span id="export-btn">  &#10052; </span>
- </div>
-
-  <div id="util-hidden-div">
-      <input id="picker" type="color" name="favcolor" value="#ff0000">  
-  </div>
-
-  <div id="content">
-    <div class="theme-mode"> 
-      <span id="mode-btn"> &#9680;</span> 
     </div>
-    <div class="bulletBox">
+
+    <div id="toolbar">
+      <div id="tools">
+        <button id="text-mode">t</button>
+        <button id="paint-mode">p</button>
+      </div>
+      <span id="theme-toggle"> &#9680;</span>
+    </div>
+
+    <div id="content">
       <canvas id="myCanvas"></canvas>
-      <div class="tool-div">
-        <span id="back-btn">  &#8617; </span>
-        <span id="undo-btn">  &#8630; </span>
-        <span id="clear-btn"> &#10005;</span>
-        <span id="redo-btn">  &#8631; </span>
-      </div> 
+    </div>
+
+    <div id="tool-div">
+      <span id="back-btn"> &#8617; </span>
+      <span id="undo-btn"> &#8630; </span>
+      <span id="clear-btn"> &#10005;</span>
+      <span id="redo-btn"> &#8631; </span>
+    </div>
+
+    <!--mood customization window-->
+    <div id="customMood">
+      <div id="pop-content">
+        <span id="close">&times;</span>
+        <p>Write something, you know, a mood?</p>
+        <input id="inputMood" maxlength="14">
+        <span id="dot"></span>
+        <button id="save-btn">Done</button>
+      </div>
+    </div>
+
+    <div id="util-hidden-div">
+      <input id="picker" type="color" name="favcolor" value="#ff0000">
     </div>
   </div>
 
-  <!--mood customization window-->
-  <div id="customMood" class="customMood">
-    <div class="pop-content">
-      <span class="close">&times;</span>
-      <p>Write something, you know, a mood?</p>
-      <input id="inputMood" maxlength="14">
-      <span id="dot" class="dot"></span>
-      <button id="save-btn">Done</button>
-    </div>
-  </div>
 </body>
 
 </html>
